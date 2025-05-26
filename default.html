@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>{{ site.title }}</h1>
+  <p>Advocacia Pública Municipal</p>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#publicacoes">Publicações</a>
+  <a href="#experiencias">Experiências</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<main>
+  {{ content }}
+</main>
+
+<footer>
+  &copy; 2025 {{ site.title }} – Todos os direitos reservados.
+  <a class="whatsapp-button" href="https://wa.me/556296318340" rel="noopener noreferrer">WhatsApp</a>
+</footer>
+
+</body>
+</html>
