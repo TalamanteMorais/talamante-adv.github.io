@@ -15,51 +15,65 @@ title: Início
   <p><strong>Valores:</strong> Ética, Transparência, Técnica e Comprometimento.</p>
 </section>
 
+<!-- MODELO PADRÃO DE SERVIÇOS - TALAMANTE MORAIS -->
+
 <section id="servicos">
   <h2>Nossos Serviços</h2>
   <div class="services-grid">
+
     <div class="service-card">
       <div class="service-icon">📝</div>
       <div class="service-title">Licitações e Contratos Públicos</div>
-      <div class="service-desc">Consultoria e assessoria para Prefeituras e Câmaras em processos licitatórios e gestão contratual.</div>
-      <a class="cta-btn-service" href="mailto:talamantemorais@gmail.com">Fale Conosco</a>
+      <div class="service-desc">
+        Consultoria jurídica completa em processos licitatórios, gestão de contratos administrativos e assessoramento técnico à equipe de compras públicas.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Consultoria em Licitações e Contratos">Solicitar Atendimento</a>
     </div>
+
     <div class="service-card">
       <div class="service-icon">⚖️</div>
       <div class="service-title">Direito Administrativo</div>
-      <div class="service-desc">Orientação jurídica em rotinas administrativas e defesa institucional.</div>
-      <a class="cta-btn-service" href="mailto:talamantemorais@gmail.com">Saiba Mais</a>
+      <div class="service-desc">
+        Orientação jurídica em atos administrativos, sindicâncias, processos disciplinares, regulamentações internas e assessoramento institucional.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Atendimento em Direito Administrativo">Fale com o Jurídico</a>
     </div>
+
+    <div class="service-card">
+      <div class="service-icon">📘</div>
+      <div class="service-title">Legislação e Processo Legislativo</div>
+      <div class="service-desc">
+        Elaboração, revisão e controle de legalidade de projetos de lei, decretos e atos normativos, com pareceres técnicos voltados ao Poder Legislativo e Executivo.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Apoio Legislativo e Normativo">Enviar Solicitação</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <div class="service-title">Controle Interno e Técnico</div>
+      <div class="service-desc">
+        Apoio jurídico ao controle interno, assessoramento em prestações de contas, pareceres sobre responsabilidade e reforço na governança municipal.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Consultoria para Controle Interno">Entrar em Contato</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📑</div>
+      <div class="service-title">Análise de Editais</div>
+      <div class="service-desc">
+        Avaliação técnica e jurídica de editais, minutas de contratos, termos de referência e orientações para adequação à Lei nº 14.133/2021.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Solicitação de Análise de Edital">Solicitar Avaliação</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <div class="service-title">Capacitação e Treinamentos</div>
+      <div class="service-desc">
+        Cursos, oficinas e treinamentos voltados para agentes públicos em temas como nova Lei de Licitações, contratos, controle e processo legislativo.
+      </div>
+      <a class="cta-btn-service" href="mailto:talamantemorais@talamante-adv.com.br?subject=Solicitação de Capacitação Técnica">Agendar Capacitação</a>
+    </div>
+
   </div>
-</section>
-
-<section id="publicacoes">
-  <h2>Publicações Técnicas</h2>
-  <ul>
-    <li><strong>Artigo:</strong> <a href="docs/artigo_implementacao_local.pdf">Download</a></li>
-    <li><strong>Vídeo:</strong> <a href="#">Assistir</a></li>
-  </ul>
-</section>
-
-<section id="experiencias">
-  <h2>Casos e Experiências Atendidas</h2>
-  <ul>
-    <li><strong>Legislação de Consórcio:</strong> revisão contratual sob a Lei nº 14.133/2021.</li>
-    <li><strong>Comissões Legislativas:</strong> consultoria técnica na redação de normas.</li>
-  </ul>
-</section>
-
-<section id="contato">
-  <h2>Contato</h2>
-  <form action="https://formsubmit.co/talamantemorais@gmail.com" method="POST">
-    <label for="nome">Nome:</label><br>
-    <input type="text" id="nome" name="nome" required><br><br>
-    <label for="email">E-mail:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="mensagem">Mensagem:</label><br>
-    <textarea id="mensagem" name="mensagem" rows="5" required></textarea><br><br>
-    <button type="submit">Enviar</button>
-  </form>
-  <p><strong>Email:</strong> talamantemorais@gmail.com</p>
-  <p><strong>WhatsApp:</strong> (62) 99631-8340</p>
 </section>
