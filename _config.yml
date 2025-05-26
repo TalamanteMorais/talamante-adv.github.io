@@ -3,7 +3,7 @@ email: "talamantemorais@gmail.com"
 description: "Site do escritório de advocacia pública municipal"
 baseurl: ""
 url: "https://talamante-adv.github.io"
-github_username: "talamante-adv"
+github_username: "TalamanteMorais"
 markdown: kramdown
 google_analytics: G-ZKCPTG7K1T
 theme: minima

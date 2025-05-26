@@ -36,7 +36,7 @@ title: Início
 <section id="publicacoes">
   <h2>Publicações Técnicas</h2>
   <ul>
-    <li><strong>Artigo:</strong> <a href="docs/artigo_implementacao_local.pdf" >Download</a></li>
+    <li><strong>Artigo:</strong> <a href="docs/artigo_implementacao_local.pdf">Download</a></li>
     <li><strong>Vídeo:</strong> <a href="#">Assistir</a></li>
   </ul>
 </section>
