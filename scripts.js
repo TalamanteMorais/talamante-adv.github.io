@@ -1,119 +1,99 @@
-// scripts.js – Funcionalidades aprimoradas do site Talamante Morais
+document.addEventListener("DOMContentLoaded", () => {
+  // ======================== ATUALIZAÇÃO DE ANO ========================
+  const ano = new Date().getFullYear();
+  const anoSpan = document.getElementById("anoAtual");
+  if (anoSpan) anoSpan.textContent = ano;
 
-window.addEventListener("DOMContentLoaded", function () {
-  // ======================== RODAPÉ – Ano automático ========================
-  const anoAtual = document.getElementById("anoAtual");
-  if (anoAtual) {
-    anoAtual.textContent = new Date().getFullYear();
-  }
+  // ======================== CARROSSEL ========================
+  const track = document.querySelector(".carousel-track");
+  const items = document.querySelectorAll(".carousel-item");
+  const carouselContainer = document.querySelector(".carousel-container");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-  // ======================== MENU – Scroll suave para âncoras ========================
-  const linksMenu = document.querySelectorAll("nav a[href^='#']");
-  linksMenu.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const id = this.getAttribute("href").substring(1);
-      const target = document.getElementById(id);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
+  const totalItems = items.length;
+  let index = 0;
+  let intervalo;
+
+  if (track && items.length > 0) {
+    track.style.width = `${totalItems * 100}%`;
+    items.forEach(item => {
+      item.style.width = `${100 / totalItems}%`;
     });
-  });
+    track.setAttribute("aria-live", "polite");
 
-  // ======================== MENU – Destacar link ativo conforme rolagem ========================
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav a[href^='#']");
+    const atualizarSlide = () => {
+      track.style.transform = `translateX(-${index * (100 / totalItems)}%)`;
+    };
 
-  function destacarMenu() {
-    const scrollPos = Math.round(window.scrollY || window.pageYOffset);
+    const iniciarCarrossel = () => {
+      intervalo = setInterval(() => {
+        index = (index + 1) % totalItems;
+        atualizarSlide();
+      }, 4000);
+    };
 
-    sections.forEach((section) => {
-      const top = section.offsetTop - 100;
-      const height = section.offsetHeight;
-      const id = section.getAttribute("id");
+    const pausarCarrossel = () => clearInterval(intervalo);
 
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").substring(1) === id) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  }
+    const reiniciarCarrossel = () => {
+      pausarCarrossel();
+      iniciarCarrossel();
+    };
 
-  window.addEventListener("scroll", destacarMenu);
-  destacarMenu();
+    iniciarCarrossel();
 
-  // ======================== FORMULÁRIO – Validação e envio ========================
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      const nome = form.querySelector('input[name="nome"]');
-      const email = form.querySelector('input[name="email"]');
-      const mensagem = form.querySelector('textarea[name="mensagem"]');
-      const botaoEnviar = form.querySelector('button[type="submit"]');
+    carouselContainer.addEventListener("mouseenter", pausarCarrossel);
+    carouselContainer.addEventListener("mouseleave", iniciarCarrossel);
 
-      const msgCamposObrigatorios = "Por favor, preencha todos os campos obrigatórios.";
-      const msgEmailInvalido = "Por favor, informe um e-mail válido.";
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", () => {
+        index = (index - 1 + totalItems) % totalItems;
+        atualizarSlide();
+        reiniciarCarrossel();
+      });
 
-      if (!nome.value.trim() || !email.value.trim() || !mensagem.value.trim()) {
-        e.preventDefault();
-        alert(msgCamposObrigatorios);
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.value.trim())) {
-        e.preventDefault();
-        alert(msgEmailInvalido);
-        return;
-      }
-
-      botaoEnviar.disabled = true;
-      botaoEnviar.textContent = "Enviando...";
-    });
-  }
-
-  // ======================== FORMULÁRIO – Mensagem de sucesso com fade-out ========================
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("sucesso") === "true") {
-    const mensagem = document.getElementById("mensagem-sucesso");
-    if (mensagem) {
-      mensagem.style.display = "block";
-      mensagem.style.opacity = 0;
-      mensagem.style.transition = "opacity 0.8s ease-in-out";
-      mensagem.setAttribute("tabindex", "-1");
-      mensagem.focus();
-
-      setTimeout(() => {
-        mensagem.style.opacity = 1;
-      }, 100);
-
-      setTimeout(() => {
-        mensagem.style.opacity = 0;
-      }, 6000);
-
-      setTimeout(() => {
-        if (mensagem.parentNode) {
-          mensagem.parentNode.removeChild(mensagem);
-        }
-      }, 6800);
+      nextBtn.addEventListener("click", () => {
+        index = (index + 1) % totalItems;
+        atualizarSlide();
+        reiniciarCarrossel();
+      });
     }
   }
 
-// ======================== INÍCIO: Execução do reCAPTCHA v3 ========================
-if (typeof grecaptcha !== "undefined") {
-  grecaptcha.ready(function () {
-    grecaptcha.execute('6LdEyWYrAAAAALdfXa6R6BprCQbpPW7KxuySJr43', { action: 'submit' }).then(function (token) {
-      const tokenField = document.getElementById('recaptcha-token');
-      if (tokenField) {
-        tokenField.value = token;
-      }
-    });
-  });
-}
-// ======================== FIM: Execução do reCAPTCHA v3 ========================
+  // ======================== FORMULÁRIO COM reCAPTCHA v3 ========================
+  const form = document.getElementById("contato-form");
+  const mensagemSucesso = document.getElementById("mensagem-sucesso");
 
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      grecaptcha.ready(() => {
+        grecaptcha.execute("6LdZFnQrAAAAABafHl6mffcrhuI8cbfsoGTm9cfL", { action: "submit" })
+          .then((token) => {
+            document.getElementById("recaptcha-token").value = token;
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+              method: "POST",
+              body: formData
+            })
+              .then(response => response.text())
+              .then(() => {
+                if (mensagemSucesso) {
+                  mensagemSucesso.style.display = "block";
+                  form.reset();
+                  setTimeout(() => {
+                    mensagemSucesso.style.display = "none";
+                  }, 6000);
+                }
+              })
+              .catch(error => {
+                console.error("Erro ao enviar:", error);
+              });
+          });
+      });
+    });
+  }
 });
