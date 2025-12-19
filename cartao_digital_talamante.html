@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <title>Cartão Digital – Talamante Morais</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-ancestors 'none';
+        connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.youtube.com;
+    script-src 'self' https://www.googletagmanager.com;
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    font-src https://fonts.gstatic.com;
+    img-src 'self' https: data:;
+  ">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKCPTG7K1T"></script>
+  <script src="gtag-init.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -63,22 +81,17 @@
   </style>
 </head>
 <body>
-
-  <img src="logo_site.png" alt="Logomarca Talamante Morais" class="logo">
-
+  <img src="img/logo_apm.png" alt="Logo Advocacia Pública Municipal" class="logo">
   <h1>Talamante Morais</h1>
   <h2>Advogado – Especialista em Direito Público Municipal</h2>
-
-  <a href="https://wa.me/556296318340" class="button" target="_blank">📱 WhatsApp</a>
-  <a href="mailto:talamantemorais@gmail.com" class="button">📧 E-mail</a>
-  <a href="https://www.instagram.com/talamantemorais/" class="button" target="_blank">📘 Instagram</a>
-  <a href="https://www.youtube.com/@TalamanteMorais" class="button" target="_blank">📺 YouTube</a>
-  <a href="https://www.linkedin.com/in/talamante-morais-a51535221/" class="button" target="_blank">🔗 LinkedIn</a>
-  <a href="Currículo%20do%20Sistema%20de%20Currículos%20Lattes%20(Talamante%20Rodrigues%20de%20Morais%20Neto).pdf" class="button" target="_blank">📄 Currículo Lattes</a>
-
-  <div class="footer">
-    &copy; 2025 Talamante Morais
-  </div>
-
+<a href="https://wa.me/556296318340" class="button" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
+<a href="https://www.instagram.com/talamantemorais/" class="button" target="_blank" rel="noopener noreferrer">📘 Instagram</a>
+<a href="https://www.youtube.com/@TalamanteMorais" class="button" target="_blank" rel="noopener noreferrer">📺 YouTube</a>
+<a href="https://www.linkedin.com/in/talamante-morais-a51535221/" class="button" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+<a href="pdf/curriculo_talamante.pdf" class="button" target="_blank" rel="noopener noreferrer">📄 Currículo Lattes</a>
+<div class="footer">
+  &copy; <span id="ano"></span> Talamante Morais · <a href="privacidade.html">Privacidade</a>
+</div>
+<script src="scripts.js" defer></script>
 </body>
 </html>
