@@ -527,6 +527,14 @@ footer{
   outline: 2px solid rgba(255,255,255,.95);
   outline-offset: 2px;
 }
+
+@media (max-width: 520px){
+  .whatsapp-button{
+    right: calc(8px + env(safe-area-inset-right));
+    bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}
+
 /* reCAPTCHA badge (v3) - canto inferior esquerdo, menor e acima do rodapé */
 .grecaptcha-badge{
   left: 10px !important;
